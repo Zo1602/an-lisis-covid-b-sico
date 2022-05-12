@@ -13,6 +13,40 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Este documento presenta varios gráficos estadísticos de los datos de COVID-19 en Costa Rica publicados por el Ministerio de Salud en https://geovision.uned.ac.cr/oges/. Los gráficos han sido generados con funciones del paquete base del lenguaje de programación R.
 
+## Entradas 
+
+### Carga de datos
+
+
+```{r carga-datos}
+covid <- read.csv(file = "05_10_22_CSV_GENERAL.csv", sep = ";")
+
+```
+
+## Procesamiento
+
+### Curacion de datos
+```{r conversion-fecha}
+covid$FECHA <- as.Date(covid$FECHA, format = "%d/%m/%Y")
+
+```
+
+
+
+## Salidas
+
+### Gráficos 
+
+### Casos acumulados 
+
+### Positivos 
+
+```{r casos-positivos acumulados}
+plot(x = covid$FECHA, y = covid$positivos)
+
+```
+
+
 ## R Markdown
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
